@@ -3,12 +3,6 @@ var submitButton = document.getElementById("submit-button");
 
 // http://www.omdbapi.com/?apikey=[yourkey]&
 
-
-
-
-// http://www.omdbapi.com/?t=rambo&y=1991
-
-
 submitButton.onclick = function (event) {
     event.preventDefault(); 
     
@@ -17,7 +11,6 @@ submitButton.onclick = function (event) {
 
     var filmInfo = "http://www.omdbapi.com/?apikey=" + APIkey + "&t=" + filmTitle ; 
     console.log(filmInfo); 
-
 
 }
 
