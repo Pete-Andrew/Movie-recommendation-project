@@ -10,9 +10,12 @@ submitButton.onclick = function (event) {
     event.preventDefault(); 
     
     var filmTitle = $("#search").val() 
+    var filmTitleWithoutSpaces = filmTitle.replaceAll(' ', '+' )
+    
     console.log(filmTitle);
+    console.log(filmTitleWithoutSpaces);
 
-    var filmInfo = "http://www.omdbapi.com/?apikey=" + APIkey + "&t=" + filmTitle; 
+    var filmInfo = "http://www.omdbapi.com/?apikey=" + APIkey + "&t=" + filmTitleWithoutSpaces; 
     console.log(filmInfo); 
 
     $.ajax({
