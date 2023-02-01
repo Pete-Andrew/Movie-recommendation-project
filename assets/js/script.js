@@ -1,3 +1,6 @@
+var time = moment();
+$("#time").text(time.format("DD-MM-YYYY"));
+
 var APIkey = "67a9b854";
 var submitButton = document.getElementById("submit-button");
 
