@@ -42,5 +42,4 @@ How does the product solve that problem? it connects two api’s, one to display
 
 Heres a simple screenshot of the working project.
 
-![08-Weather-Dashboard](https://user-images.githubusercontent.com/117322790/215296180-02e825c7-164f-4cdf-b43e-8fd6abe8e0be.png)
 
