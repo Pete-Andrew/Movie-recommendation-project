@@ -18,11 +18,21 @@ submitButton.onclick = function (event) {
     $.ajax({
         url: filmInfo,
         method: "GET", 
-        }).then(function (filmInfoFromAPI) {
-            console.log(filmInfoFromAPI);
+        }).then(function (APIResponse) {
+            console.log(APIResponse);
+
+            var poster = $("#poster");
+            poster.attr("src", APIResponse.Poster);
+  
+            // console.log(poster);
+
 
         }); 
-    
+        
+        // var poster = $("<img>");
+        // poster.attr("src", response.Poster);
+  
+
 }
 
 
