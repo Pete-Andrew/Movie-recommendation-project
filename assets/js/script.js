@@ -40,7 +40,7 @@ submitButton.onclick = function (event) {
             $("#awards").text("Awarrds:" + APIResponse.Awards); 
             $("#rated").text("Rated: " + APIResponse.Rated); 
             $("#director").text("Director: " + APIResponse.Director); 
-            $("#imdb-rating").text("IMDB rating: " + APIResponse.Rating);
+            $("#imdb-rating").text("IMDB rating: " + APIResponse.imdbRating);
             $("#released").text("Release Date: " + APIResponse.Released);           
            
         }); 
