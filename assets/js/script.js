@@ -24,7 +24,7 @@ submitButton.onclick = function (event) {
         }).then(function (APIResponse) {
             console.log(APIResponse);
 
-            var poster = $("#poster");
+            var poster = $("#poster1");
             poster.attr("src", APIResponse.Poster);
   
             // console.log(poster);
