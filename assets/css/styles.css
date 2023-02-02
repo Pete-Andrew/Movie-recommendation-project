@@ -3,3 +3,12 @@ card-deck {
     padding: 30px;
     background-color: aquamarine;
 }
+
+
+body {
+    background-image: url("../images/cinema\ 1.png");
+  }
+
+#jumbotronPicture {
+    background-image: url("../images/cinema-image-2.png");
+}
