@@ -5,9 +5,20 @@ card-deck {
 }
 
 
-body {
+/* body {
     background-image: url("../images/cinema\ 1.png");
-  }
+
+
+  } */
+
+  body {
+    background-image: url("../images/background.png");
+    background-position: center;
+    /* background-repeat: no-repeat; */
+    background-size: cover;
+   }
+
+
 
 #jumbotronPicture {
     background-color: black;
