@@ -10,5 +10,19 @@ body {
   }
 
 #jumbotronPicture {
-    background-image: url("../images/cinema-image-2.png");
+    background-color: black;
+}
+
+#jumbotronText {
+ color: aliceblue;   
+}
+
+#time { 
+
+    color: aliceblue;
+}
+
+#navbar {
+
+    color: black;
 }
