@@ -79,3 +79,12 @@ body {
   text-decoration: none;
   cursor: pointer;
 }
+
+.card {
+  margin: auto;
+  padding: 30px;
+}
+
+#navbar {
+  background-color: white;
+}
