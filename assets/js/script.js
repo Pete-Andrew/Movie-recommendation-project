@@ -37,6 +37,9 @@ submitButton.onclick = function (event) {
 
     var poster = $("#poster1");
     poster.attr("src", APIResponse.Poster);
+    
+    var poster2 = $("#poster2");
+    poster2.attr("src", APIResponse.Poster);
 
     $("#filmTitle").text(APIResponse.Title);
     $("#actors").text("Actors: " + APIResponse.Actors);
