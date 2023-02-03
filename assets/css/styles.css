@@ -81,3 +81,8 @@ body {
   cursor: pointer;
 }
 
+.card {
+  margin: auto;
+  padding: 30px;
+}
+
