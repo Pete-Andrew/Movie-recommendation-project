@@ -49,7 +49,7 @@ submitButton.onclick = function (event) {
 $(document).ready(function () {
   var modal = $("#myModal");
 
-  var trigger = $("#modal-trigger");
+  var trigger = $("#submit-button");
 
   var closeButton = $(".close-button");
 
