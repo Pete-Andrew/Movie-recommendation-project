@@ -13,9 +13,10 @@ card-deck {
 
   body {
     background-image: url("../images/background.png");
-    background-position: center;
-    /* background-repeat: no-repeat; */
-    background-size: cover;
+    /* background-position: center; */
+    object-fit: contain;
+    background-position: left 50% bottom 90%;
+    background-size: 100%;
    }
 
 
@@ -36,13 +37,4 @@ card-deck {
 #navbar {
 
     color: black;
-}
-
-.mybox {
-    padding: 20px;
-}
-
-.card {
-    margin: auto;
-    padding: 30px;
 }
