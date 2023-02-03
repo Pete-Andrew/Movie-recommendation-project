@@ -12,6 +12,8 @@ var IMDBrating = $("imdb-rating");
 var released = $("released");
 var fimlTitle = $("filmTitle");
 
+var modalCardText = $("card-text");
+
 //creates an onclick function that takes the input film name, replaces the white space in it with +, and pulls the film info from the API
 submitButton.onclick = function (event) {
   event.preventDefault();
@@ -38,11 +40,15 @@ submitButton.onclick = function (event) {
 
     $("#filmTitle").text(APIResponse.Title);
     $("#actors").text("Actors: " + APIResponse.Actors);
-    $("#awards").text("Awarrds:" + APIResponse.Awards);
+    $("#awards").text("Awarrds: " + APIResponse.Awards);
     $("#rated").text("Rated: " + APIResponse.Rated);
     $("#director").text("Director: " + APIResponse.Director);
     $("#imdb-rating").text("IMDB rating: " + APIResponse.imdbRating);
     $("#released").text("Release Date: " + APIResponse.Released);
+
+    $(".card-text").text(APIResponse.Plot);
+    $(".card-title").text(APIResponse.Title);
+
   });
 };
 
@@ -67,3 +73,4 @@ $(document).ready(function () {
     }
   });
 });
+

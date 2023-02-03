@@ -24,6 +24,7 @@ body {
 
 #jumbotronText {
   color: aliceblue;
+  text-align: center;
 }
 
 #time {
