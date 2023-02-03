@@ -37,3 +37,12 @@ card-deck {
 
     color: black;
 }
+
+.mybox {
+    padding: 20px;
+}
+
+.card {
+    margin: auto;
+    padding: 30px;
+}
