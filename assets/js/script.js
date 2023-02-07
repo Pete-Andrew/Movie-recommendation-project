@@ -62,6 +62,7 @@ submitButton.onclick = function (event) {
     var tempArray = JSON.parse(localStorage.getItem("filmInfo")) || [];
     tempArray.push(APIResponse);
     localStorage.setItem("filmInfo", JSON.stringify(tempArray));
+    console.log(localStorage); 
     
   });
 };
