@@ -55,8 +55,14 @@ submitButton.onclick = function (event) {
     $(".card-text").text(APIResponse.Plot);
     $(".card-title").text(APIResponse.Title);
 
+    var tempArray = JSON.parse(localStorage.getItem("filmInfo")) || [];
+    tempArray.push(APIResponse);
+    localStorage.setItem("filmInfo", JSON.stringify(tempArray));
+    
   });
 };
+
+
 
 $(document).ready(function () {
   
@@ -85,3 +91,7 @@ function saveButtonClick () {
   
 };
 saveButtonClick(); 
+
+
+
+
