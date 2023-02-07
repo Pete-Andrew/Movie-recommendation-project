@@ -1,4 +1,4 @@
-localStorage.clear();
+// localStorage.clear();
 
 var time = moment();
 $("#time").text(time.format("DD-MM-YYYY"));
@@ -19,6 +19,7 @@ var trigger = $("#submit-button");
 var closeButton = $(".close-button");
 var modalCardText = $("card-text");
 var filmTitle = $("#search");
+var cardsForPages = $(".front-page-card");
 
 var filmArray = []; 
 
@@ -63,7 +64,7 @@ submitButton.onclick = function (event) {
     tempArray.push(APIResponse);
     localStorage.setItem("filmInfo", JSON.stringify(tempArray));
     console.log(localStorage); 
-    
+    return tempArray;
   });
 };
 
@@ -97,5 +98,29 @@ function saveButtonClick () {
 saveButtonClick(); 
 
 
+function dynamicallyCreateCardsFromLocalStorage() {
+  var tempArray = JSON.parse(localStorage.getItem("filmInfo"));
+  console.log(tempArray);
+  //clears the buttons list and relogs the buttons so you don't get doubled enteries.
+  // historyButtonList.innerHTML = "";
 
+  // if (tempArray !== null) {
+       
+    //
+    for (var i =0; i < tempArray.length; i++) {
+    
+    var tempArrayRendered = document.createElement("front-page-card"); 
+    // tempArrayRendered.setAttribute("class", "btn btn-secondary btn-block history-button");
+    
+    tempArrayRendered.setAttribute("data-index", i);
+    tempArrayRendered.textContent = tempArray[i].Title;
+        
+    cardsForPages.append(tempArrayRendered);
+    
+    }
+  // }
+}
+
+//on refresh dynamically create buttons for each member of the history buttons array and assign them names. 
+dynamicallyCreateCardsFromLocalStorage(); 
 
