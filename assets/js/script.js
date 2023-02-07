@@ -11,7 +11,10 @@ var director = $("director");
 var IMDBrating = $("imdb-rating");
 var released = $("released");
 var fimlTitle = $("filmTitle");
-
+var saveButton = $("button.saveButton");
+var modal = $("#myModal");
+var trigger = $("#submit-button");
+var closeButton = $(".close-button");
 var modalCardText = $("card-text");
 
 //creates an onclick function that takes the input film name, replaces the white space in it with +, and pulls the film info from the API
@@ -43,7 +46,7 @@ submitButton.onclick = function (event) {
 
     $("#filmTitle").text(APIResponse.Title);
     $("#actors").text("Actors: " + APIResponse.Actors);
-    $("#awards").text("Awarrds: " + APIResponse.Awards);
+    $("#awards").text("Awards: " + APIResponse.Awards);
     $("#rated").text("Rated: " + APIResponse.Rated);
     $("#director").text("Director: " + APIResponse.Director);
     $("#imdb-rating").text("IMDB rating: " + APIResponse.imdbRating);
@@ -56,11 +59,7 @@ submitButton.onclick = function (event) {
 };
 
 $(document).ready(function () {
-  var modal = $("#myModal");
-
-  var trigger = $("#submit-button");
-
-  var closeButton = $(".close-button");
+  
 
   trigger.click(function () {
     modal.css("display", "block");
@@ -77,3 +76,12 @@ $(document).ready(function () {
   });
 });
 
+function saveButtonClick () {
+  saveButton.click(function (event) {
+  
+      event.preventDefault(); 
+      console.log("test log");
+    });
+  
+};
+saveButtonClick(); 
