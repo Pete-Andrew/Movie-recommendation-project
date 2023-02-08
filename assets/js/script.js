@@ -1,4 +1,4 @@
-localStorage.clear();
+// localStorage.clear();
 
 var time = moment();
 $("#time").text(time.format("DD-MM-YYYY"));
@@ -20,6 +20,7 @@ var closeButton = $(".close-button");
 var modalCardText = $("card-text");
 var filmTitle = $("#search");
 var cardsForPages = $(".front-page-card");
+var clearSaveHistoryButton = $("#clearHistory")
 
 var filmArray = []; 
 
@@ -104,12 +105,11 @@ function dynamicallyCreateCardsFromLocalStorage() {
   
     for (var i =0; i < tempArray.length; i++) {
     
-    var tempArrayRendered = document.createElement("front-page-card"); 
-    tempArrayRendered.setAttribute("class", "card mb-4");
+    var tempArrayRendered = document.createElement("button"); 
+    tempArrayRendered.setAttribute("class", "saveHistory btn btn-secondary");
     
     // tempArrayRendered.setAttribute("data-index", i);
     tempArrayRendered.textContent = tempArray[i].Title;
-
         
     cardsForPages.append(tempArrayRendered);
     
@@ -120,3 +120,10 @@ function dynamicallyCreateCardsFromLocalStorage() {
 //on refresh dynamically create buttons for each member of the history buttons array and assign them names. 
 dynamicallyCreateCardsFromLocalStorage(); 
 
+
+// function clearSaveHistory () {
+
+//   clearSaveHistoryButton.onClick(localStorage.clear()); 
+// }
+
+// clearSaveHistory ();
