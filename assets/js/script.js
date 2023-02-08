@@ -38,7 +38,7 @@ function getMovieInfo (filmTitle) {
   var filmTitleWithoutSpaces = filmTitle.replaceAll(" ", "+");
   
   var filmInfo =
-    "http://www.omdbapi.com/?apikey=" + APIkey + "&t=" + filmTitleWithoutSpaces;
+    "https://www.omdbapi.com/?apikey=" + APIkey + "&t=" + filmTitleWithoutSpaces;
 
   //Ajax turns the returned info from the API key into a usable object.
   $.ajax({
