@@ -123,13 +123,14 @@ dynamicallyCreateCardsFromLocalStorage();
 
 
 function createButton (movieName) { 
-  var tempArrayRendered = document.createElement("button"); 
-  
-  var trash = document.createElement("i");
-  trash.classList = "fa-regular fa-circle-xmark";
+
   var movieDiv = document.createElement("div");
-
-
+  
+  var tempArrayRendered = document.createElement("button"); 
+  // var trash = document.createElement("i");
+  // trash.classList="fa-regular fa-circle-xmark";
+  // trash.setAttribute("class", "fa-regular fa-circle-xmark");
+  
     tempArrayRendered.setAttribute("class", "saveHistory btn btn-secondary");
     
     tempArrayRendered.addEventListener("click", doSomething) 
@@ -137,7 +138,7 @@ function createButton (movieName) {
     // tempArrayRendered.setAttribute("data-index", i);
     tempArrayRendered.textContent = movieName
     movieDiv.append(tempArrayRendered); 
-    movieDiv.append(trash); 
+    // movieDiv.append(trash); 
 
     cardsForPages.append(movieDiv);
 }
@@ -152,6 +153,7 @@ function clearSaveHistory () {
  
   clearSaveHistoryButton.click(function () {
   localStorage.clear();
+  location.reload();
   modal.css("display", "none");
   });
 
