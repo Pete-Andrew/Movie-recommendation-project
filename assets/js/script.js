@@ -34,10 +34,6 @@ submitButton.onclick = function (event) {
   getMovieInfo(filmTitle); 
 }
 
-function hidePoser2 () {
-  
-}
-
 function getMovieInfo (filmTitle) { 
   var filmTitleWithoutSpaces = filmTitle.replaceAll(" ", "+");
   
@@ -161,7 +157,6 @@ function doSomething (event) {
 }
 
 
- 
   clearSaveHistoryButton.click(function () {
   console.log("eventListenerClicked"); 
   localStorage.clear();
