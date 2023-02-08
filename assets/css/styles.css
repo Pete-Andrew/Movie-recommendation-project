@@ -13,9 +13,13 @@ body {
 }
 
 #jumbotronPicture {
-  background: rgb(2,0,36);
-  background: radial-gradient(circle, rgba(2,0,36,1) 6%, rgba(26,26,82,1) 52%, rgba(13,38,43,1) 100%);
-  
+  background: rgb(2, 0, 36);
+  background: radial-gradient(
+    circle,
+    rgba(2, 0, 36, 1) 6%,
+    rgba(26, 26, 82, 1) 52%,
+    rgba(13, 38, 43, 1) 100%
+  );
 }
 
 #jumbotronText {
@@ -35,12 +39,10 @@ body {
   color: aliceblue;
 }
 
-
 h1 {
   color: aliceblue;
   text-align: center;
 }
-
 
 /* modal */
 
@@ -61,7 +63,6 @@ h1 {
   color: aliceblue;
   text-align: center;
 }
-
 
 .modal-content {
   background-color: #fefefe;
@@ -103,12 +104,10 @@ h1 {
   margin: 0.5%;
 }
 
-
 /* scales the img to page size */
 img {
   height: auto;
   max-width: 100%;
-
 }
 
 .clearBtn {
@@ -117,11 +116,12 @@ img {
 }
 
 #clearHistory {
-  padding:10px;
+  padding: 10px;
   border-radius: 5px;
 }
 
 #clearHistory:hover {
-  background-color: #5688C7;
-  color:white;
-} 
+  background-color: #5688c7;
+  color: white;
+}
+
