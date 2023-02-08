@@ -23,7 +23,7 @@ var filmTitle = $("#search");
 var cardsForPages = $(".front-page-card");
 var clearSaveHistoryButton = $("#clearHistory")
 
-// var filmArray = []; 
+
 
 //creates an onclick function that takes the input film name, replaces the white space in it with +, and pulls the film info from the API
 submitButton.onclick = function (event) {
@@ -148,7 +148,7 @@ function createButton (movieName) {
 }
 
 function doSomething (event) {
-  
+    
   getMovieInfo(event.target.textContent);
 
 }
