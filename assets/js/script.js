@@ -1,7 +1,7 @@
 // localStorage.clear();
 
 var time = moment();
-$("#time").text(time.format("DD-MM-YYYY"));
+$("#time").text(time.format("MMMM Do YYYY, h:mm:ss a"));
 
 var APIkey = "67a9b854";
 var submitButton = document.getElementById("submit-button");
@@ -33,7 +33,7 @@ submitButton.onclick = function (event) {
   getMovieInfo(filmTitle); 
 }
 
-function hideFrontPageCard () {
+function hidePoser2 () {
   
 }
 
@@ -110,12 +110,19 @@ saveButtonClick();
 
 
 function dynamicallyCreateCardsFromLocalStorage() {
+
+  
   var filmArray = JSON.parse(localStorage.getItem("filmInfo"));
   
+  if (!filmArray) {
+    return;
+  }
+
    //clears the buttons list and relogs the buttons so you don't get doubled enteries.
    cardsForPages.innerHTML = "";
 
   // if (filmArray !== null) {  
+  
   getMovieInfo(filmArray[0].Title); 
 
   for (var i =0; i < filmArray.length; i++) {
@@ -152,14 +159,12 @@ function doSomething (event) {
 
 }
 
-function clearSaveHistory () {
+
  
   clearSaveHistoryButton.click(function () {
+  console.log("eventListenerClicked"); 
   localStorage.clear();
   location.reload();
   modal.css("display", "none");
   });
 
-}
-
-clearSaveHistory ();
