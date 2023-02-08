@@ -1,7 +1,8 @@
 // localStorage.clear();
 
 var time = moment();
-$("#time").text(time.format("DD-MM-YYYY"));
+$("#time").text(time.format("MMMM Do YYYY, h:mm:ss a"));
+
 
 var APIkey = "67a9b854";
 var submitButton = document.getElementById("submit-button");
@@ -163,3 +164,5 @@ function clearSaveHistory () {
 }
 
 clearSaveHistory ();
+
+
