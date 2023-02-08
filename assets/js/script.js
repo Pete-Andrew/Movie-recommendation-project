@@ -1,7 +1,8 @@
 // localStorage.clear();
 
 var time = moment();
-$("#time").text(time.format("DD-MM-YYYY"));
+$("#time").text(time.format("MMMM Do YYYY, h:mm:ss a"));
+
 
 var APIkey = "67a9b854";
 var submitButton = document.getElementById("submit-button");
@@ -22,7 +23,7 @@ var filmTitle = $("#search");
 var cardsForPages = $(".front-page-card");
 var clearSaveHistoryButton = $("#clearHistory")
 
-// var filmArray = []; 
+
 
 //creates an onclick function that takes the input film name, replaces the white space in it with +, and pulls the film info from the API
 submitButton.onclick = function (event) {
@@ -147,7 +148,7 @@ function createButton (movieName) {
 }
 
 function doSomething (event) {
-  
+    
   getMovieInfo(event.target.textContent);
 
 }
@@ -163,3 +164,5 @@ function clearSaveHistory () {
 }
 
 clearSaveHistory ();
+
+
