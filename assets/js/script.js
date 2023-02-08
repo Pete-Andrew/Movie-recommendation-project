@@ -29,20 +29,21 @@ submitButton.onclick = function (event) {
   event.preventDefault();
 
   var filmTitle = $("#search").val();
+  getMovieInfo(filmTitle); 
+}
+
+function getMovieInfo (filmTitle) { 
   var filmTitleWithoutSpaces = filmTitle.replaceAll(" ", "+");
   
-  console.log(filmTitleWithoutSpaces);
 
   var filmInfo =
     "http://www.omdbapi.com/?apikey=" + APIkey + "&t=" + filmTitleWithoutSpaces;
-  console.log(filmInfo);
 
   //Ajax turns the returned info from the API key into a usable object.
   $.ajax({
     url: filmInfo,
     method: "GET",
   }).then(function (APIResponse) {
-    console.log(APIResponse);
 
     var poster = $("#poster1");
     poster.attr("src", APIResponse.Poster);
@@ -62,11 +63,15 @@ submitButton.onclick = function (event) {
     $(".card-title").text(APIResponse.Title);
 
     var tempArray = JSON.parse(localStorage.getItem("filmInfo")) || [];
+    
+    for (var i =0; i < tempArray.length; i++) {
+    if (tempArray[i].Title === APIResponse.Title) {
+    return; }
+    } 
+
     tempArray.push(APIResponse);
     localStorage.setItem("filmInfo", JSON.stringify(tempArray));
-    console.log(localStorage); 
-    return tempArray;
-
+    createButton(APIResponse.Title);
     
   });
 };
@@ -94,7 +99,6 @@ function saveButtonClick () {
   saveButton.click(function (event) {
   
       event.preventDefault(); 
-      console.log("test log");
     });
   
 };
@@ -103,31 +107,46 @@ saveButtonClick();
 
 function dynamicallyCreateCardsFromLocalStorage() {
   var tempArray = JSON.parse(localStorage.getItem("filmInfo"));
-  console.log(tempArray);
   
    //clears the buttons list and relogs the buttons so you don't get doubled enteries.
    cardsForPages.innerHTML = "";
 
-  if (tempArray !== null) {  
-  
-  for (var i =0; i < tempArray.length; i++) {
-    
-    var tempArrayRendered = document.createElement("button"); 
-    tempArrayRendered.setAttribute("class", "saveHistory btn btn-secondary");
-    
-    // tempArrayRendered.setAttribute("data-index", i);
-    tempArrayRendered.textContent = tempArray[i].Title;
-        
-    cardsForPages.append(tempArrayRendered);
-    
+  // if (tempArray !== null) {  
+  getMovieInfo(tempArray[0].Title); 
 
-    }
+  for (var i =0; i < tempArray.length; i++) {
+    createButton(tempArray[i].Title); 
   }
 }
-
 //on refresh dynamically create buttons for each member of the history buttons array and assign them names. 
 dynamicallyCreateCardsFromLocalStorage(); 
 
+
+function createButton (movieName) { 
+  var tempArrayRendered = document.createElement("button"); 
+  
+  var trash = document.createElement("i");
+  trash.classList = "fa-regular fa-circle-xmark";
+  var movieDiv = document.createElement("div");
+
+
+    tempArrayRendered.setAttribute("class", "saveHistory btn btn-secondary");
+    
+    tempArrayRendered.addEventListener("click", doSomething) 
+
+    // tempArrayRendered.setAttribute("data-index", i);
+    tempArrayRendered.textContent = movieName
+    movieDiv.append(tempArrayRendered); 
+    movieDiv.append(trash); 
+
+    cardsForPages.append(movieDiv);
+}
+
+function doSomething (event) {
+  
+  getMovieInfo(event.target.textContent);
+
+}
 
 function clearSaveHistory () {
  
