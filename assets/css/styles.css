@@ -118,5 +118,15 @@ img {
   color: white;
 }
 
+.saveButton {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.saveButton:hover {
+  background-color: #5688c7;
+  color: white;
+  border-color: white;
+}
 
 
