@@ -110,3 +110,18 @@ img {
   max-width: 100%;
 
 }
+
+.clearBtn {
+  text-align: center;
+  padding: 10px;
+}
+
+#clearHistory {
+  padding:10px;
+  border-radius: 5px;
+}
+
+#clearHistory:hover {
+  background-color: #5688C7;
+  color:white;
+} 
