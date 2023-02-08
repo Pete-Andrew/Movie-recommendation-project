@@ -36,14 +36,17 @@ body {
   color: black;
 }
 
-#filmInfo {
+.filmInfo {
   color: aliceblue;
 }
 
-#filmTitle {
+.filmTitle {
   color: aliceblue;
 }
 
+h1 {
+  color: aliceblue;
+}
 /* modal */
 
 .modal {
@@ -86,3 +89,6 @@ body {
   padding: 30px;
 }
 
+.saveButton {
+  color: green;
+}

@@ -1,4 +1,4 @@
-// localStorage.clear();
+localStorage.clear();
 
 var time = moment();
 $("#time").text(time.format("DD-MM-YYYY"));
@@ -6,13 +6,13 @@ $("#time").text(time.format("DD-MM-YYYY"));
 var APIkey = "67a9b854";
 var submitButton = document.getElementById("submit-button");
 
-var actors = $("#actors");
-var awards = $("#awards");
-var rated = $("#rated");
-var director = $("director");
-var IMDBrating = $("imdb-rating");
-var released = $("released");
-var fimlTitle = $("filmTitle");
+var actors = $(".actors");
+var awards = $(".awards");
+var rated = $(".rated");
+var director = $(".director");
+var IMDBrating = $(".imdb-rating");
+var released = $(".released");
+var fimlTitle = $(".filmTitle");
 var saveButton = $("button.saveButton");
 var modal = $("#myModal");
 var trigger = $("#submit-button");
@@ -49,13 +49,13 @@ submitButton.onclick = function (event) {
     var poster2 = $("#poster2");
     poster2.attr("src", APIResponse.Poster);
 
-    $("#filmTitle").text(APIResponse.Title);
-    $("#actors").text("Actors: " + APIResponse.Actors);
-    $("#awards").text("Awards: " + APIResponse.Awards);
-    $("#rated").text("Rated: " + APIResponse.Rated);
-    $("#director").text("Director: " + APIResponse.Director);
-    $("#imdb-rating").text("IMDB rating: " + APIResponse.imdbRating);
-    $("#released").text("Release Date: " + APIResponse.Released);
+    $(".filmTitle").text(APIResponse.Title);
+    $(".actors").text("Actors: " + APIResponse.Actors);
+    $(".awards").text("Awards: " + APIResponse.Awards);
+    $(".rated").text("Rated: " + APIResponse.Rated);
+    $(".director").text("Director: " + APIResponse.Director);
+    $(".imdb-rating").text("IMDB rating: " + APIResponse.imdbRating);
+    $(".released").text("Release Date: " + APIResponse.Released);
 
     $(".card-text").text(APIResponse.Plot);
     $(".card-title").text(APIResponse.Title);
@@ -101,19 +101,15 @@ saveButtonClick();
 function dynamicallyCreateCardsFromLocalStorage() {
   var tempArray = JSON.parse(localStorage.getItem("filmInfo"));
   console.log(tempArray);
-  //clears the buttons list and relogs the buttons so you don't get doubled enteries.
-  // historyButtonList.innerHTML = "";
-
-  // if (tempArray !== null) {
-       
-    //
+  
     for (var i =0; i < tempArray.length; i++) {
     
     var tempArrayRendered = document.createElement("front-page-card"); 
-    // tempArrayRendered.setAttribute("class", "btn btn-secondary btn-block history-button");
+    tempArrayRendered.setAttribute("class", "card mb-4");
     
-    tempArrayRendered.setAttribute("data-index", i);
+    // tempArrayRendered.setAttribute("data-index", i);
     tempArrayRendered.textContent = tempArray[i].Title;
+
         
     cardsForPages.append(tempArrayRendered);
     
