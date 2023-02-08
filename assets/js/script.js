@@ -32,6 +32,10 @@ submitButton.onclick = function (event) {
   getMovieInfo(filmTitle); 
 }
 
+function hideFrontPageCard () {
+  
+}
+
 function getMovieInfo (filmTitle) { 
   var filmTitleWithoutSpaces = filmTitle.replaceAll(" ", "+");
   
