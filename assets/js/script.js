@@ -66,6 +66,8 @@ submitButton.onclick = function (event) {
     localStorage.setItem("filmInfo", JSON.stringify(tempArray));
     console.log(localStorage); 
     return tempArray;
+
+    
   });
 };
 
@@ -103,7 +105,12 @@ function dynamicallyCreateCardsFromLocalStorage() {
   var tempArray = JSON.parse(localStorage.getItem("filmInfo"));
   console.log(tempArray);
   
-    for (var i =0; i < tempArray.length; i++) {
+   //clears the buttons list and relogs the buttons so you don't get doubled enteries.
+   cardsForPages.innerHTML = "";
+
+  if (tempArray !== null) {  
+  
+  for (var i =0; i < tempArray.length; i++) {
     
     var tempArrayRendered = document.createElement("button"); 
     tempArrayRendered.setAttribute("class", "saveHistory btn btn-secondary");
@@ -113,17 +120,22 @@ function dynamicallyCreateCardsFromLocalStorage() {
         
     cardsForPages.append(tempArrayRendered);
     
+
     }
-  // }
+  }
 }
 
 //on refresh dynamically create buttons for each member of the history buttons array and assign them names. 
 dynamicallyCreateCardsFromLocalStorage(); 
 
 
-// function clearSaveHistory () {
+function clearSaveHistory () {
+ 
+  clearSaveHistoryButton.click(function () {
+  localStorage.clear();
+  modal.css("display", "none");
+  });
 
-//   clearSaveHistoryButton.onClick(localStorage.clear()); 
-// }
+}
 
-// clearSaveHistory ();
+clearSaveHistory ();

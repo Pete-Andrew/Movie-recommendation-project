@@ -4,12 +4,6 @@ card-deck {
   background-color: aquamarine;
 }
 
-/* body {
-    background-image: url("../images/cinema\ 1.png");
-
-
-  } */
-
 body {
   background-image: url("../images/background.png");
   /* background-position: center; */
@@ -96,10 +90,23 @@ h1 {
   padding: 30px;
 }
 
+.card-body {
+  margin: 10px;
+}
+
 #submit-button {
   color: green;
 }
 
+/* add spacing between buttons */
 .saveHistory {
   margin: 0.5%;
+}
+
+
+/* scales the img to page size */
+img {
+  height: auto;
+  max-width: 100%;
+
 }
