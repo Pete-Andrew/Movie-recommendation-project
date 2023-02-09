@@ -24,7 +24,7 @@ Requires no installation,
 ## Deployment
 To deploy this project run
 
-click on the url ==> 
+click on the url ==> https://pete-andrew.github.io/Movie-recommendation-project/
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
