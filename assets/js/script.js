@@ -3,7 +3,6 @@
 var time = moment();
 $("#time").text(time.format("MMMM Do YYYY, h:mm:ss a"));
 
-
 var APIkey = "67a9b854";
 var submitButton = document.getElementById("submit-button");
 
@@ -21,34 +20,34 @@ var closeButton = $(".close-button");
 var modalCardText = $("card-text");
 var filmTitle = $("#search");
 var cardsForPages = $(".front-page-card");
-var clearSaveHistoryButton = $("#clearHistory")
-
-
+var clearSaveHistoryButton = $("#clearHistory");
 
 //creates an onclick function that takes the input film name, replaces the white space in it with +, and pulls the film info from the API
 submitButton.onclick = function (event) {
   event.preventDefault();
 
   var filmTitle = $("#search").val();
- //passes the film title into the film title function
-  getMovieInfo(filmTitle); 
-}
+  //passes the film title into the film title function
+  getMovieInfo(filmTitle);
+};
 
-function getMovieInfo (filmTitle) { 
+function getMovieInfo(filmTitle) {
   var filmTitleWithoutSpaces = filmTitle.replaceAll(" ", "+");
-  
+
   var filmInfo =
-    "https://www.omdbapi.com/?apikey=" + APIkey + "&t=" + filmTitleWithoutSpaces;
+    "https://www.omdbapi.com/?apikey=" +
+    APIkey +
+    "&t=" +
+    filmTitleWithoutSpaces;
 
   //Ajax turns the returned info from the API key into a usable object.
   $.ajax({
     url: filmInfo,
     method: "GET",
   }).then(function (APIResponse) {
-
     var poster = $("#poster1");
     poster.attr("src", APIResponse.Poster);
-    
+
     var poster2 = $("#poster2");
     poster2.attr("src", APIResponse.Poster);
 
@@ -64,23 +63,21 @@ function getMovieInfo (filmTitle) {
     $(".card-title").text(APIResponse.Title);
 
     var filmArray = JSON.parse(localStorage.getItem("filmInfo")) || [];
-    
-    for (var i =0; i < filmArray.length; i++) {
-    //stops the button being appended if there is a title in the filmArray that matches a button.
-    if (filmArray[i].Title === APIResponse.Title) {
-    return; }
-    } 
+
+    for (var i = 0; i < filmArray.length; i++) {
+      //stops the button being appended if there is a title in the filmArray that matches a button.
+      if (filmArray[i].Title === APIResponse.Title) {
+        return;
+      }
+    }
 
     filmArray.push(APIResponse);
     localStorage.setItem("filmInfo", JSON.stringify(filmArray));
     createButton(APIResponse.Title);
-    
   });
-};
-
+}
 
 $(document).ready(function () {
-
   trigger.click(function () {
     modal.css("display", "block");
   });
@@ -96,77 +93,65 @@ $(document).ready(function () {
   });
 });
 
-function saveButtonClick () {
+function saveButtonClick() {
   saveButton.click(function (event) {
-      modal.css("display", "none");
-      event.preventDefault(); 
-    });
-  
-};
-saveButtonClick(); 
-
+    modal.css("display", "none");
+    event.preventDefault();
+  });
+}
+saveButtonClick();
 
 function dynamicallyCreateCardsFromLocalStorage() {
-
-  
   var filmArray = JSON.parse(localStorage.getItem("filmInfo"));
-  
+
   if (!filmArray) {
     return;
   }
 
-   //clears the buttons list and relogs the buttons so you don't get doubled enteries.
-   cardsForPages.innerHTML = "";
+  //clears the buttons list and relogs the buttons so you don't get doubled enteries.
+  cardsForPages.innerHTML = "";
 
-  // if (filmArray !== null) {  
-  
-  getMovieInfo(filmArray[0].Title); 
+  // if (filmArray !== null) {
 
-  for (var i =0; i < filmArray.length; i++) {
-    createButton(filmArray[i].Title); 
+  getMovieInfo(filmArray[0].Title);
+
+  for (var i = 0; i < filmArray.length; i++) {
+    createButton(filmArray[i].Title);
   }
 }
-//on refresh dynamically create buttons for each member of the history buttons array and assign them names. 
-dynamicallyCreateCardsFromLocalStorage(); 
+//on refresh dynamically create buttons for each member of the history buttons array and assign them names.
+dynamicallyCreateCardsFromLocalStorage();
 
-
-function createButton (movieName) { 
-
+function createButton(movieName) {
   var movieDiv = document.createElement("div");
-  
-  var filmArrayRendered = document.createElement("button"); 
+
+  var filmArrayRendered = document.createElement("button");
   filmArrayRendered.setAttribute("class", "saveHistory btn btn-secondary");
   // var trash = document.createElement("i");
   // trash.classList="fa-regular fa-circle-xmark";
   // trash.setAttribute("class", "fa-regular fa-circle-xmark");
-        
-    filmArrayRendered.addEventListener("click", doSomething) 
 
-    // filmArrayRendered.setAttribute("data-index", i);
-    filmArrayRendered.textContent = movieName
-    movieDiv.append(filmArrayRendered); 
-    // movieDiv.append(trash); 
+  filmArrayRendered.addEventListener("click", doSomething);
 
-    cardsForPages.append(movieDiv);
+  // filmArrayRendered.setAttribute("data-index", i);
+  filmArrayRendered.textContent = movieName;
+  movieDiv.append(filmArrayRendered);
+  // movieDiv.append(trash);
+
+  cardsForPages.append(movieDiv);
 }
 
-function doSomething (event) {
-    
+function doSomething(event) {
   getMovieInfo(event.target.textContent);
-
 }
 
-
-  clearSaveHistoryButton.click(function () {
-  console.log("eventListenerClicked"); 
+clearSaveHistoryButton.click(function () {
+  console.log("eventListenerClicked");
   localStorage.clear();
   location.reload();
   modal.css("display", "none");
-  });
+});
 
 //test comment!
 //making sure this is going to push to github
 //final comment just to be sure
-
-
-
