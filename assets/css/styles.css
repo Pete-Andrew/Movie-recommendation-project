@@ -147,3 +147,18 @@ img {
   }
 }
 
+.searchBtn {
+  text-align: center;
+  margin: 10px;
+  
+}
+
+#myForm {
+  padding-bottom: 40px;
+  justify-content: center;
+}
+
+#search {
+  width: 500px;
+  border-color: black;
+}

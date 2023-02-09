@@ -50,50 +50,34 @@
             <div class="modal-content">
               <span class="close-button">&times;</span> 
 
-      <!-- Display Movie Poster. This displays as the modal for card-->
-      <!-- removed style="max-width: 1000px; from the modal class (after card mb-3) -->
-      <div id="modal-info" class="card mb-3">
-        <div class="row no-gutters">
-          <div class="col-md-4 mybox">
-            <img id= "poster1" src="..." alt="...">
-          </div>
-          <div class="col-md-8 box">
-            <div class="card-body">
-              <h5 class="card-title"></h5>
-              
-              <p class="actors"></p>
-              <p class="awards"></p>
-              <p class="rated"></p>
-              <p class="director"></p>
-              <P class="imdb-rating"></P>
-              <p class="released"></p>
-              
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <p class="card-text-time"><small class="text-muted">Last updated 4 mins ago</small></p>
-            
-              <button class="saveButton">
-                <i class="fa-solid fa-floppy-disk"></i>
-                Save for later
-              </button>
-            </div>
-          </div>
+              <!-- Display Movie Poster. This displays as the modal for card-->
+              <!-- removed style="max-width: 1000px; from the modal class (after card mb-3) -->
+          <div id="modal-info" class="card mb-3">
+            <div class="row no-gutters">
+              <div class="col-md-4 mybox">
+                <img id= "poster1" src="..." alt="...">
+              </div>
+              <div class="col-md-8 box">
+                <div class="card-body">
+                  <h5 class="card-title"></h5>
+                  
+                  <p class="actors"></p>
+                  <p class="awards"></p>
+                  <p class="rated"></p>
+                  <p class="director"></p>
+                  <P class="imdb-rating"></P>
+                  <p class="released"></p>
+                  
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p class="card-text-time"><small class="text-muted">Last updated 4 mins ago</small></p>
+                
+                  <button class="saveButton">
+                    <i class="fa-solid fa-floppy-disk"></i>
+                    Save for later
+                  </button>
+                </div>
+              </div>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input
-            class="form-control mr-sm-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-            id="search"
-          />
-          <button
-            id="submit-button"
-            class="btn btn-outline-success my-2 my-sm-0"
-            type="submit"
-          >
-            Search
-          </button>
-        </form>
       </div>
     </nav>
 
@@ -107,6 +91,25 @@
 
     <!-- Display Poster on front page-->
     <div class="card mb-4 front-page-card" style="max-width: 1000px">
+         <!--- Search button ---->
+         <div class="searchBtn">
+          <form class="form-inline" id= "myForm">
+            <input
+              class="form-control mr-sm-2" 
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              id="search"
+            />
+            <button
+              id="submit-button"
+              class="btn btn-outline-success my-2 my-sm-0"
+              type="submit"
+            >
+              Search
+            </button>
+          </form>
+        </div>
       <div class="row no-gutters">
         <div class="col-md-4 flex-container">
           <img id="poster2" src="assets/images/Logo.png" alt="Logo for website" />     
