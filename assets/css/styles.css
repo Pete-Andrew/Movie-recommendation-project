@@ -4,12 +4,6 @@ card-deck {
   background-color: aquamarine;
 }
 
-/* body {
-    background-image: url("../images/cinema\ 1.png");
-
-
-  } */
-
 body {
   background-image: url("../images/background.png");
   /* background-position: center; */
@@ -19,8 +13,13 @@ body {
 }
 
 #jumbotronPicture {
-  background: rgb(2,0,36);
-  background: radial-gradient(circle, rgba(2,0,36,1) 6%, rgba(26,26,82,1) 52%, rgba(13,38,43,1) 100%);
+  background: rgb(2, 0, 36);
+  background: radial-gradient(
+    circle,
+    rgba(2, 0, 36, 1) 6%,
+    rgba(26, 26, 82, 1) 52%,
+    rgba(13, 38, 43, 1) 100%
+  );
 }
 
 #jumbotronText {
@@ -36,12 +35,13 @@ body {
   color: black;
 }
 
-#filmInfo {
+.filmInfo {
   color: aliceblue;
 }
 
-#filmTitle {
+h1 {
   color: aliceblue;
+  text-align: center;
 }
 
 /* modal */
@@ -59,6 +59,11 @@ body {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
+.h1 {
+  color: aliceblue;
+  text-align: center;
+}
+
 .modal-content {
   background-color: #fefefe;
   margin: 15% auto;
@@ -68,21 +73,77 @@ body {
 }
 
 .close-button {
-  color: #aaa;
+  color: #ffffff;
   float: right;
   font-size: 28px;
   font-weight: bold;
 }
 
-.close-button:hover,
-.close-button:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
 .card {
   margin: auto;
   padding: 30px;
+}
+
+.card-body {
+  margin: 10px;
+}
+
+#submit-button {
+  color: green;
+}
+
+/* add spacing between buttons */
+.saveHistory {
+  margin: 0.5%;
+}
+
+/* scales the img to page size */
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+.clearBtn {
+  text-align: center;
+  padding: 10px;
+}
+
+#clearHistory {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#clearHistory:hover {
+  background-color: #5688c7;
+  color: white;
+}
+
+.saveButton {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.saveButton:hover {
+  background-color: #5688c7;
+  color: white;
+  border-color: white;
+}
+
+.glow {
+  font-size: 80px;
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
 }
 

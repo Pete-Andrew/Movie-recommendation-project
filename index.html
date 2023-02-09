@@ -9,16 +9,16 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
     />
 
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"
     />
+
     <link
       rel="stylesheet"
       href="../Movie-recommendation-project/assets/css/styles.css"
     />
 
-    <title>Movie Recomendation Project</title>
+    <title>Movie Information Project!</title>
   </head>
 
   <body>
@@ -48,42 +48,33 @@
           <!-- Modal -->
           <div id="myModal" class="modal">
             <div class="modal-content">
-              <span class="close-button">&times;</span>
-           
-           
-      
-    <!-- Modal content -->
-      <div id="jumbotronPicture" class="jumbotron jumbotron-fluid">
-        <div  class="container">
-          <h1 id="filmTitle" class="display-4"></h1>
-          
-          <div id="filmInfo">
-                                
-            <p id="actors"></p>
-            <p id="awards"></p>
-            <p id="rated"></p>
-            <p id="director"></p>
-            <P id="imdb-rating"></P>
-            <p id="released"></p>
-            <!-- <div id="momentDate"></div> -->
-           
-        </div>
-        </div>
-      </div>
+              <span class="close-button">&times;</span> 
 
-      <!-- Display Movie Poster -->
-      <div class="card mb-3" style="max-width: 1000px;">
+      <!-- Display Movie Poster. This displays as the modal for card-->
+      <!-- removed style="max-width: 1000px; from the modal class (after card mb-3) -->
+      <div id="modal-info" class="card mb-3">
         <div class="row no-gutters">
           <div class="col-md-4 mybox">
             <img id= "poster1" src="..." alt="...">
           </div>
           <div class="col-md-8 box">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
+              <h5 class="card-title"></h5>
+              
+              <p class="actors"></p>
+              <p class="awards"></p>
+              <p class="rated"></p>
+              <p class="director"></p>
+              <P class="imdb-rating"></P>
+              <p class="released"></p>
+              
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <p class="card-text-time"><small class="text-muted">Last updated 3 mins ago</small></p>
+              <p class="card-text-time"><small class="text-muted">Last updated 4 mins ago</small></p>
             
-              <button class="saveButton">Save for later</button>
+              <button class="saveButton">
+                <i class="fa-solid fa-floppy-disk"></i>
+                Save for later
+              </button>
             </div>
           </div>
         </ul>
@@ -104,46 +95,47 @@
           </button>
         </form>
       </div>
-    
-      
-    
     </nav>
 
     <!--Jumbotron -->
     <div id="jumbotronPicture" class="jumbotron jumbotron-fluid">
       <div class="container ">
-        <h1 id="filmTitle" class="display-4"> Movie Recommendation Project!</h1>
-
-        <div id="filmInfo">
-          <p id="actors"></p>
-          <p id="awards"></p>
-          <p id="rated"></p>
-          <p id="director"></p>
-          <p id="imdb-rating"></p>
-          <p id="released"></p>
-          <!-- <div id="momentDate"></div> -->
-        </div>
+        <h1 id="filmTitle" class="display-4 glow">Movie Info Searcher!</h1>
+      </div>
       </div>
     </div>
 
-    <!-- Display Poster on card -->
-    <div class="card mb-3" style="max-width: 1000px">
+    <!-- Display Poster on front page-->
+    <div class="card mb-4 front-page-card" style="max-width: 1000px">
       <div class="row no-gutters">
-        <div class="col-md-4">
-          <img id="poster2" src="..." alt="..." />
+        <div class="col-md-4 flex-container">
+          <img id="poster2" src="assets/images/Logo.png" alt="Logo for website" />     
+        
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-               
-            </p>
+            <h5 class="card-title">Welcome to the movie API page!</h5>
+            <p class="card-text">Search for your favourite films using the search bar and favourite them for later. <br> 
+              Don't forget to admire the time and date brought to you by moment API!</p>
+            <p class="actors"></p>
+            <p class="awards"></p>
+            <p class="rated"></p>
+            <p class="director"></p>
+            <p class="imdb-rating"></p>
+            <p class="released"></p>
             <!-- <p class="card-text"> -->
-              <small class="text-muted">Last updated 3 mins ago</small>
+              <small class="text-muted" id="timesearch">Last updated 2 mins ago</small>
             </p>
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="clearBtn" >
+      <button type="submit" id="clearHistory">
+          <i class="fa-solid fa-trash"></i>
+          Clear All Save History
+        </button>
     </div>
 
     <!-- JS script added -->
