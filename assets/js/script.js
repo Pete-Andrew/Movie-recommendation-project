@@ -3,7 +3,14 @@
 var time = moment();
 $("#time").text(time.format("MMMM Do YYYY, h:mm:ss a"));
 
+//sets IMDB (?) api key
 var APIkey = "67a9b854";
+
+// sets youtube API key
+//var youtube_API_KEY = "insert - YouTube Data API v3 API key"
+var youtube_API_KEY = "AIzaSyDf4tMz3vgTdMX_rn7o9ONzURY-tdhurvY";
+// var youtube_API_KEY = "AIzaSyCmhzO1q2A0IGFd_sNNt10YNyKjZ7d08as";
+
 var submitButton = document.getElementById("submit-button");
 
 var actors = $(".actors");
@@ -26,10 +33,45 @@ var clearSaveHistoryButton = $("#clearHistory");
 submitButton.onclick = function (event) {
   event.preventDefault();
 
+  var youtubeSearch = $("#search").val() + " movie trailer";
+  console.log(youtubeSearch);
+
+  videoSearch(youtube_API_KEY, youtubeSearch, 1);
+
   var filmTitle = $("#search").val();
   //passes the film title into the film title function
   getMovieInfo(filmTitle);
 };
+
+//uses the value returned from youtubSearch to get a video from youtube
+
+function videoSearch(youtube_API_KEY, youtubeSearch, maxResults) {
+  //The empty() method removes all child nodes and content from the selected elements.
+  $("#videos").empty();
+
+  //The get() method returns a specified element from a Map object.
+  //Map objects are collections of key-value pairs. A key in the Map may only occur once; it is unique in the Map's collection. Similar to objects.
+  $.get(
+    "https://www.googleapis.com/youtube/v3/search?key=" +
+      youtube_API_KEY +
+      "&type=video&part=snippet&maxResults=" +
+      maxResults +
+      "&q=" +
+      youtubeSearch,
+
+    function (data) {
+      // console.log(data);
+
+      data.items.forEach((item) => {
+        video = `
+              <iframe width="420" height=315" src="https://youtube.com/embed/${item.id.videoId}" frameborder="0" allowfullscreen></iframe>            
+              `;
+
+        $("#videos").append(video);
+      });
+    }
+  );
+}
 
 function getMovieInfo(filmTitle) {
   var filmTitleWithoutSpaces = filmTitle.replaceAll(" ", "+");
@@ -62,6 +104,8 @@ function getMovieInfo(filmTitle) {
     $(".card-text").text(APIResponse.Plot);
     $(".card-title").text(APIResponse.Title);
 
+    //JSON.parse() is used for parsing data that was received as JSON; it deserializes a JSON string into a JavaScript object. String to object
+    //JSON.stringify() on the other hand is used to create a JSON string out of an object or array; it serializes a JavaScript object into a JSON string. Object to string
     var filmArray = JSON.parse(localStorage.getItem("filmInfo")) || [];
 
     for (var i = 0; i < filmArray.length; i++) {
@@ -104,14 +148,13 @@ saveButtonClick();
 function dynamicallyCreateCardsFromLocalStorage() {
   var filmArray = JSON.parse(localStorage.getItem("filmInfo"));
 
+  //! logical NOT,
   if (!filmArray) {
     return;
   }
 
   //clears the buttons list and relogs the buttons so you don't get doubled enteries.
   cardsForPages.innerHTML = "";
-
-  // if (filmArray !== null) {
 
   getMovieInfo(filmArray[0].Title);
 
@@ -127,22 +170,19 @@ function createButton(movieName) {
 
   var filmArrayRendered = document.createElement("button");
   filmArrayRendered.setAttribute("class", "saveHistory btn btn-secondary");
-  // var trash = document.createElement("i");
-  // trash.classList="fa-regular fa-circle-xmark";
-  // trash.setAttribute("class", "fa-regular fa-circle-xmark");
 
   filmArrayRendered.addEventListener("click", doSomething);
 
-  // filmArrayRendered.setAttribute("data-index", i);
   filmArrayRendered.textContent = movieName;
   movieDiv.append(filmArrayRendered);
-  // movieDiv.append(trash);
 
   cardsForPages.append(movieDiv);
 }
 
+//when saved film buttons are clicked on this function passes the name of the button into the getMovieInfo and videoSearch functions.
 function doSomething(event) {
   getMovieInfo(event.target.textContent);
+  videoSearch(youtube_API_KEY, event.target.textContent + " movie trailer", 1);
 }
 
 clearSaveHistoryButton.click(function () {
@@ -155,3 +195,9 @@ clearSaveHistoryButton.click(function () {
 //test comment!
 //making sure this is going to push to github
 //final comment just to be sure
+
+// "code": 403,
+// "message": "The request cannot be completed because you have exceeded your <a href=\"/youtube/v3/getting-started#quota\">quota</a>.",
+
+//video has "paused on breakpoint" issue.
+//also has exceeded API calls limit at least once!
